@@ -1,0 +1,158 @@
+ul.topnav {
+	list-style: none;
+	padding: 0 ;	
+	opacity:0.7;
+	margin: 0;
+	float: left;
+	width: 100%;
+	height: 35px;
+	background: #FF00FF;
+	
+  /* fallback */
+  background-color: #FF00FF;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF00FF), to(#FFFFFF));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #FF00FF, #FFFFFF);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #FF00FF, #FFFFFF);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #FF00FF, #FFFFFF);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #FF00FF, #FFFFFF);	
+	
+	font-size: 1em;
+	position:fixed;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 1px 50px #FF99FF;
+	z-index: 999999;
+/*	border-style:solid;
+	border-image: url(../img/pink_flower.png) 30 30 round;  */
+}
+
+
+ul.topnav li {
+	float: left;
+	margin: 0;	
+	padding: 0 0 0 15px;
+	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+}
+
+
+
+ul.topnav li.firstpage
+{
+    padding: 0 0 0 10px;
+	float: left;
+	
+	margin-left:  20%;
+	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+}
+
+
+ul.topnav p {
+    font-size: 12px;
+	float: right;
+	margin: 0;	
+	padding: 0 15px 0 0;
+	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+}
+
+
+ul.topnav p a{
+	padding: 10px 5px;
+	color: #000;
+	display: block;
+	text-decoration: none;
+	float: right;
+}
+ul.topnav li a{
+    z-index: 999999;
+	padding: 10px 5px;
+	color: #000;
+	display: block;
+	text-decoration: none;
+	float: left;
+}
+
+
+ul.topnav li a:hover{
+	background: url(../img/topnav_hovern2.gif) no-repeat center top;
+}
+ul.topnav li span { /*--Drop down trigger styles--*/
+	width: 17px;
+	height: 35px;
+	float: left;
+	background: url(../img/subnav_btnpink.gif) no-repeat center top;
+}
+ul.topnav li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
+ul.topnav li ul.subnav {
+	list-style: none;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	left: 0; top: 35px;
+	background: #FF00FF;
+	margin: 0; padding: 0;
+	display: none;
+	float: left;
+	width: 170px;
+	z-index: 999999;
+	border: 1px solid #99FF99;
+}
+ul.topnav li ul.subnav li{
+	margin: 0; padding: 0;
+	border-top: 1px solid #99FF99; /*--Create bevel effect--*/
+	border-bottom: 1px solid #99FF99; /*--Create bevel effect--*/
+	z-index: 999999;
+	clear: both;
+	width: 170px;
+}
+html ul.topnav li ul.subnav li a {
+	float: left;
+	width: 145px;
+	z-index: 999999;
+	background: #FF99FF url(../img/dropdown_linkbg.gif) no-repeat 10px center;
+	
+	
+  /* fallback */
+  background-color: #FF00FF;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF99FF), to(#FFFFFF));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #FF99FF, #FFFFFF);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #FF99FF, #FFFFFF);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #FF99FF, #FFFFFF);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #FF99FF, #FFFFFF);	
+	
+	padding-left: 20px;
+}
+html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
+	background: #FF00AA url(../img/dropdown_linkbg.gif) no-repeat 10px center; 
+}
+ul.topnav li.logo
+{
+	float: left;
+	margin-left:  0;
+	padding: 0px 0px;
+	position: absolute; /*--Declare X and Y axis base for sub navigation--*/
+}
+ul.topnav li a.logo{
+    z-index: 999999;
+	padding: 0 0px;
+	display: block;
+	text-decoration: none;
+	float: left;
+}

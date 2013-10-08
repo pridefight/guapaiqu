@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>挂牌去注册页面</title>
+<link href="../css/regform.css" rel="stylesheet" type="text/css">
+<script src="../js/rollups/md5.js"></script>
+<script src="../js/rollups/sha3.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+
+(function($,W,D)
+{
+    var JQUERY4U = {};
+
+    JQUERY4U.UTIL =
+    {
+        setupFormValidation: function()
+        {
+            //form validation rules
+            $("#target").validate({
+                rules: {
+                    username: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    passwd: {
+                        required: true,
+                        minlength: 6
+                    },
+                    repeatpasswd: {
+                        required: true,
+						equalTo: "#passwd"
+                    }
+                },
+                messages: {
+                    username: "请输入用户名",
+                    email: "请输入有效的email地址",
+                    passwd: {
+                        required: "请输入一个密码",
+                        minlength: "密码需至少6位长"
+                    },
+					repeatpasswd: {
+					    required:"请确认密码",
+					    equalTo: "两次输入的密码不一样"
+					}
+                }
+            });
+        }
+    }
+
+    //when the dom has loaded setup form validation rules
+    $(D).ready(function($) {
+	    
+        JQUERY4U.UTIL.setupFormValidation();
+    });
+
+})(jQuery, window, document);
+
+
+$(document).ready(function()
+{
+    $("#subbuttion").click(function()
+    {
+	        var regform = $( "#target" );
+	        if(regform.valid()){
+                var password = $('[name=passwd]').val();
+		    	var hash = CryptoJS.MD5(password);
+                $('[name=passwd]').val(hash);
+                $('[name=repeatpasswd]').val(hash);
+                $("#target").submit();
+			}else{
+			    alert("输入不合法");
+			}
+    });
+    $("#backlogin").click(function()
+    {
+            window.location.href = "../php/index.php";
+    });
+});
+</script>
+</head>
+
+<body>
+
+<div id="content">
+<form id="target" name="target" method="post" action="../php/register.php">
+  <h1>新用户注册 :</h1>
+  <label>用户名
+  <input class="input" type="text" name="username" />
+  </label>
+  <p>
+    <label>Email
+    <input class="input" type="text" name="email" />
+    </label>
+  </p>
+  <p>
+    <label>密码
+    <input class="input" type="password" name="passwd" id="passwd" />
+    </label>
+  </p>
+  <p>
+    <label>重复密码
+    <input class="input" type="password" name="repeatpasswd" />
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="radio" name="gender" value="1" checked="checked" />
+      男生</label>
+    <label>
+      <input type="radio" name="gender" value="0" />
+      女生</label>
+  </p>
+  <p>
+    <label>
+    <input id="subbuttion" type="submit" name="Submit" title="提交注册" value="注册" />
+    </label>
+    <label>
+    <input id="backlogin" type="button" name="backlogin" title="回登陆页" value="返回登录" />
+    </label>
+  </p>
+</form>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+
+
+#container {
+    top: 30px;
+    height: auto !important;
+    min-height: 100%;
+    height: 100%;
+	overflow: auto;
+    position: relative; /* Required to absolutely position the footer */
+}
+
+#left {
+	float: left;
+	width: 20%;
+	height:auto;
+	min-height:1000px;
+    padding-top:20px;
+	border-right: 1px solid #CC99FF;
+}
+
+#right {
+	float: right;
+	width: 15%;
+	padding-top: 20px;
+	border-left: 1px solid #CC99FF;
+    min-height: 1000px;
+}
+
+#content {
+	margin-right:15%;
+	margin-left: 20%;
+    padding-left:1cm;
+	padding-right:1cm;
+	border-right: 1px solid #CC99FF;
+	border-left: 1px solid #CC99FF;
+}
+
+#footer {
+	background-image: url(../img/footer_bgn.jpg);
+	background-repeat: repeat-x;
+	height: 38px;
+	opacity: 0.9;
+	text-align: center;
+	width:100%;
+	font-size: .9em;
+
+	float: bottom;
+	position:fixed;
+	bottom: 0;
+	left: 0;
+}
+
+
+
+/***********************************'   Left side Menu  *******************************/
+
+#navlist
+{
+	padding-left: 0;
+	margin-left: 0;
+	border-bottom: 1px solid #C2C2CA;
+	width: 160px;
+}
+
+#navlist li
+{
+list-style: none;
+margin: 0;
+padding: 0.25em;
+border-top: 1px solid #C2C2CA;
+}
+
+#navlist li a {
+	text-decoration: none;
+
+}
+
+
+

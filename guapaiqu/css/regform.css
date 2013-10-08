@@ -1,0 +1,84 @@
+body
+{
+background-image:url('../img/qinglv.jpg');
+background-repeat:repeat-x;
+}
+
+#target{
+background: -webkit-gradient(linear, bottom, left 175px, from(#66FF33), to(#3366FF));
+background: -moz-linear-gradient(bottom, #66FF33, #3366FF 175px);
+margin:auto;
+position:relative;
+width:530px;
+height:440px;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 14px;
+font-style: italic;
+line-height: 24px;
+font-weight: bold;
+color: #FF00FF;
+text-decoration: none;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:10px;
+border: 1px solid #999;
+border: inset 1px solid #333;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.input{
+width:375px;
+display:block;
+border: 1px solid #999;
+height: 25px;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+#subbuttion{
+width:100px;
+position:absolute;
+right:20px;
+bottom:20px;
+background:#09C;
+color:#fff;
+font-family: Tahoma, Geneva, sans-serif;
+height:30px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+border: 1p solid #999;
+}
+
+#subbuttion:hover {
+background:#fff;
+color:#09C;
+}
+
+#backlogin{
+width:100px;
+position:absolute;
+right:150px;
+bottom:20px;
+background:#09C;
+color:#fff;
+font-family: Tahoma, Geneva, sans-serif;
+height:30px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+border: 1p solid #999;
+}
+
+#backlogin:hover {
+background:#fff;
+color:#09C;
+}
+	 
+/* Make Header Sticky */
+#header_container { background:#eee; border:1px solid #666; height:60px; left:0; position:fixed; width:100%; top:0; }
+#header{ line-height:60px; margin:0 auto; width:940px; text-align:center; }
