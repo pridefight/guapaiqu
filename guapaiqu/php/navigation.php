@@ -1,5 +1,5 @@
 <ul class="topnav">
-    <li class="logo"><a class="logo" href="#"><img src='../img/logo.png' border='0' width=auto height=auto></a></li>
+    <li class="logo"><a class="logo" href="main.php"><img src='../img/logo.png' border=0 ></a></li>
     <li class="firstpage"><a href="main.php">首页</a></li>
     <li>
         <a href="mypage.php">个人主页</a>
@@ -13,6 +13,7 @@
         </ul>
     </li>
     <li><a href="about.php">关于本站</a></li>
+    <li><a href="tuanju.php">团聚</a></li>
 	<p><a href="#"><?= $_SESSION['uid'] ?></a></p>
 	<p><a href="logout.php">退出</a><p>
 </ul>

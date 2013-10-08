@@ -5,8 +5,7 @@ background-repeat:repeat-x;
 }
 
 #target{
-background: -webkit-gradient(linear, bottom, left 175px, from(#66FF33), to(#3366FF));
-background: -moz-linear-gradient(bottom, #66FF33, #3366FF 175px);
+background-image:url('../img/grad.jpg');
 margin:auto;
 position:relative;
 width:530px;

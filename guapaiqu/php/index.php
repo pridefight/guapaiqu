@@ -21,7 +21,43 @@ if(isset($_SESSION['uid']))
 <script src="../js/rollups/md5.js"></script>
 <script src="../js/rollups/sha3.js"></script>
 <script src="../js/jquery.js"></script>
+<script src="../js/jquery.validate.min.js"></script>
 <script>
+(function($,W,D)
+{
+    var JQUERY4U = {};
+
+    JQUERY4U.UTIL =
+    {
+        setupFormValidation: function()
+        {
+            //form validation rules
+            $("#target").validate({
+                rules: {
+                    username: "required",
+                    passwd: {
+                        required: true,
+                        minlength: 6
+                    }
+                },
+                messages: {
+                    username: "请输入用户名",
+                    passwd: {
+                        required: "请输入一个密码",
+                        minlength: "密码需至少6位长"
+                    }
+                }
+            });
+        }
+    }
+
+    //when the dom has loaded setup form validation rules
+    $(D).ready(function($) {
+	    
+        JQUERY4U.UTIL.setupFormValidation();
+    });
+
+})(jQuery, window, document);
 $(document).ready(function(){
   $("#reg").click(function(){
     var url = "../html/register.html";    
@@ -32,10 +68,15 @@ $(document).ready(function(){
   });
   
   $("#submit").click(function(){
-    var password = $('[name=passwd]').val();
-	var hash = CryptoJS.MD5(password);
-    $('[name=passwd]').val(hash);
-    $("#target").submit();
+    var loginform = $( "#target" );
+	if(loginform.valid()){
+      var password = $('[name=passwd]').val();
+	  var hash = CryptoJS.MD5(password);
+      $('[name=passwd]').val(hash);
+      $("#target").submit();
+	}else{
+			    alert("输入不合法");
+	}
   });
 });
 </script>

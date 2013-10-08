@@ -32,7 +32,7 @@ if($result->num_rows > 0)
    header('Refresh: 0; URL=main.php');
 }else{
    echo "用户名或密码错误!";
-   header('Refresh: 0; URL=index.php');
+   header('Refresh: 1; URL=index.php');
 }
 
 $mysqli->close();

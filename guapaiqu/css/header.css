@@ -7,24 +7,8 @@ ul.topnav {
 	width: 100%;
 	height: 35px;
 	background: #FF00FF;
+	background-image: url(../img/footer_bgnb.jpg);
 	
-  /* fallback */
-  background-color: #FF00FF;
-
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF00FF), to(#FFFFFF));
-
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #FF00FF, #FFFFFF);
-
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, #FF00FF, #FFFFFF);
-
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #FF00FF, #FFFFFF);
-
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #FF00FF, #FFFFFF);	
 	
 	font-size: 1em;
 	position:fixed;
@@ -117,25 +101,7 @@ html ul.topnav li ul.subnav li a {
 	width: 145px;
 	z-index: 999999;
 	background: #FF99FF url(../img/dropdown_linkbg.gif) no-repeat 10px center;
-	
-	
-  /* fallback */
-  background-color: #FF00FF;
 
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF99FF), to(#FFFFFF));
-
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #FF99FF, #FFFFFF);
-
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, #FF99FF, #FFFFFF);
-
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #FF99FF, #FFFFFF);
-
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #FF99FF, #FFFFFF);	
 	
 	padding-left: 20px;
 }
@@ -148,6 +114,7 @@ ul.topnav li.logo
 	margin-left:  0;
 	padding: 0px 0px;
 	position: absolute; /*--Declare X and Y axis base for sub navigation--*/
+	
 }
 ul.topnav li a.logo{
     z-index: 999999;
