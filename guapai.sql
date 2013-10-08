@@ -57,12 +57,14 @@ CREATE TABLE IF NOT EXISTS `LoginInfo` (
   UNIQUE KEY `uid` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- 正在导出表  guapaiqu.LoginInfo 的数据：~3 rows (大约)
+-- 正在导出表  guapaiqu.LoginInfo 的数据：~5 rows (大约)
 /*!40000 ALTER TABLE `LoginInfo` DISABLE KEYS */;
 INSERT INTO `LoginInfo` (`uid`, `email`, `passwd`) VALUES
 	('fight', 'fengchang_fight@127.com', '4cb990b8e58275a3e2ec3269a8f07af0'),
 	('Lily', 'longquan31@21cn.com', 'e10adc3949ba59abbe56e057f20f883e'),
-	('pridefight', 'fengchang_fight@126.com', '4cb990b8e58275a3e2ec3269a8f07af0');
+	('pridefight', 'fengchang_fight@126.com', '4cb990b8e58275a3e2ec3269a8f07af0'),
+	('test', 'test@test.com', '96e79218965eb72c92a549dd5a330112'),
+	('test2', 'test@test2.com', 'e3ceb5881a0a1fdaad01296d7554868d');
 /*!40000 ALTER TABLE `LoginInfo` ENABLE KEYS */;
 
 
@@ -118,12 +120,14 @@ CREATE TABLE IF NOT EXISTS `PersonInfo` (
   CONSTRAINT `FK_PersonInfo_LoginInfo` FOREIGN KEY (`uid`) REFERENCES `LoginInfo` (`uid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- 正在导出表  guapaiqu.PersonInfo 的数据：~3 rows (大约)
+-- 正在导出表  guapaiqu.PersonInfo 的数据：~5 rows (大约)
 /*!40000 ALTER TABLE `PersonInfo` DISABLE KEYS */;
 INSERT INTO `PersonInfo` (`uid`, `gender`, `birthdate`, `school`, `currentcity`, `edudegree`, `height`, `weight`, `major`, `markcount`, `averagemark`, `selfdescription`, `status`, `hometown`, `extension`) VALUES
 	('fight', b'10000000', '1000-01-01', 'unknown', 'unknown', 0, 0, 0, 'unknown', 0, 0, 'nothing yet', b'00000000', 'unknown', 'unknown'),
 	('Lily', b'10000000', '1000-01-01', 'unknown', 'unknown', 0, 0, 0, 'unknown', 0, 0, 'nothing yet', b'00000000', 'unknown', 'unknown'),
-	('pridefight', b'10000000', '1000-01-01', 'unknown', 'unknown', 0, 0, 0, 'unknown', 0, 0, 'nothing yet', b'00000000', 'unknown', 'unknown');
+	('pridefight', b'10000000', '1000-01-01', 'unknown', 'unknown', 0, 0, 0, 'unknown', 0, 0, 'nothing yet', b'00000000', 'unknown', 'unknown'),
+	('test', b'10000000', '1000-01-01', 'unknown', 'unknown', 0, 0, 0, 'unknown', 0, 0, 'nothing yet', b'00000000', 'unknown', 'unknown'),
+	('test2', b'10000000', '1000-01-01', 'unknown', 'unknown', 0, 0, 0, 'unknown', 0, 0, 'nothing yet', b'00000000', 'unknown', 'unknown');
 /*!40000 ALTER TABLE `PersonInfo` ENABLE KEYS */;
 
 
@@ -144,22 +148,26 @@ CREATE TABLE IF NOT EXISTS `PersonRequire` (
   CONSTRAINT `FK_PersonRequire_LoginInfo` FOREIGN KEY (`uid`) REFERENCES `LoginInfo` (`uid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- 正在导出表  guapaiqu.PersonRequire 的数据：~3 rows (大约)
+-- 正在导出表  guapaiqu.PersonRequire 的数据：~5 rows (大约)
 /*!40000 ALTER TABLE `PersonRequire` DISABLE KEYS */;
 INSERT INTO `PersonRequire` (`uid`, `requireminheight`, `requiremaxheight`, `requireminweight`, `requiremaxweight`, `requireearlybirth`, `requirelatebirth`, `requireminedu`, `requireminincome`, `requirehouse`, `prextension`) VALUES
 	('fight', 0, 220, 0, 1000, '1901', '2155', 0, 0, b'00000000', 'unknown'),
 	('Lily', 0, 220, 0, 1000, '1901', '2155', 0, 0, b'00000000', 'unknown'),
-	('pridefight', 0, 220, 0, 1000, '1901', '2155', 0, 0, b'00000000', 'unknown');
+	('pridefight', 0, 220, 0, 1000, '1901', '2155', 0, 0, b'00000000', 'unknown'),
+	('test', 0, 220, 0, 1000, '1901', '2155', 0, 0, b'00000000', 'unknown'),
+	('test2', 0, 220, 0, 1000, '1901', '2155', 0, 0, b'00000000', 'unknown');
 /*!40000 ALTER TABLE `PersonRequire` ENABLE KEYS */;
 
 
 -- 导出  表 guapaiqu.picmapping 结构
 CREATE TABLE IF NOT EXISTS `picmapping` (
   `uid` char(50) NOT NULL,
-  `picid` int(11) NOT NULL,
-  `albumname` varchar(50) NOT NULL DEFAULT 'default',
-  `filename` varchar(50) NOT NULL,
+  `picid` int(30) NOT NULL AUTO_INCREMENT,
+  `album` varchar(50) NOT NULL DEFAULT 'default',
+  `photo_name` varchar(50) NOT NULL,
+  `date_added` datetime NOT NULL,
   PRIMARY KEY (`uid`,`picid`),
+  KEY `picid` (`picid`),
   CONSTRAINT `FK_picmapping_LoginInfo` FOREIGN KEY (`uid`) REFERENCES `LoginInfo` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
