@@ -23,8 +23,8 @@ if(!isset($_SESSION['uid']))
 <script src="../js/headerhover.js"></script>
 <style>
     #galleria{
-      margin:0 auto;width:80%;height:540px;border:1px solid #000; 
-      background: #111 
+      margin:0 auto;width:63%;height:540px;border:1px solid #FFE4B5; 
+      background: #FFE4B5 
      }
 </style>
 </head>

@@ -5,6 +5,7 @@ ul.topnav {
 	margin: 0;
 	float: left;
 	width: 100%;
+        min-width: 700px;
 	height: 35px;
 	background: #FF00FF;
 	background-image: url(../img/footer_bgnb.jpg);
