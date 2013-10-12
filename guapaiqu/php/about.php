@@ -18,12 +18,6 @@ if(!isset($_SESSION['uid']))
 <title>挂牌去首页</title>
 <link rel="stylesheet" href="../css/header.css" type="text/css" />
 <link rel="stylesheet" href="../css/mainbody.css" type="text/css" />
-<style>
-#mainbody{
-   margin-top: 50px;
-   position: absolute;
-}
-</style>
 <script src="../js/jquery.js">
 </script>
 <script src="../js/headerhover.js"></script>

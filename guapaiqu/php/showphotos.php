@@ -18,40 +18,46 @@ if(!isset($_SESSION['uid']))
 <title>挂牌去首页</title>
 <link rel="stylesheet" href="../css/header.css" type="text/css" />
 <link rel="stylesheet" href="../css/mainbody.css" type="text/css" />
-<style>
-#mainbody{
-   margin-top: 50px;
-   position: absolute;
-}
-</style>
-<script src="../js/jquery.js">
-</script>
+<script src="../js/jquery.js"></script>
+<script src="../js/galleria/galleria-1.2.9.min.js"></script>
 <script src="../js/headerhover.js"></script>
+<style>
+    #galleria{
+      margin:0 auto;width:80%;height:540px;border:1px solid #000; 
+      background: #111 
+     }
+</style>
 </head>
 
 <body>
 <?php
 include_once 'navigation.php';
+include_once 'guapai-config.php';
+$mysqli=new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+$tuser=$_GET['targetuser'];
+$sql = "SELECT  * FROM picmapping WHERE uid='$tuser' ORDER BY picid ASC";
+$query = $mysqli->query($sql);
 ?>
 
 <div id="container">
-
-<div id="left">
-<p>left placeholder</p>
+<div align="center" id="albumdiv">
+        <div id="galleria">
+<?php
+while($row = $query->fetch_array())
+{
+$file = $row['photo_name'];
+$album = $row['album'];
+$picpath="../data/userimg/".$tuser."/".$album."/".$file;
+echo "<img src='$picpath' />";
+}
+?>
 </div>
-
-
-<div id="right">
-<p>right placeholder</p>
-<p>a</p>
-
-</div>
-
-<div id="content">
-<p>album place holder</p>
+        <script>
+            Galleria.loadTheme('../js/galleria/themes/classic/galleria.classic.min.js');
+            Galleria.run('#galleria');
+        </script>
 </div>
 </div>
-
 <div id="footer">&copy; <a href="">guapaiqu.com</a> | 喷气机出品 2013</div>
 
 
