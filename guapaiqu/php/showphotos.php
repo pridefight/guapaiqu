@@ -18,15 +18,43 @@ if(!isset($_SESSION['uid']))
 <title>挂牌去首页</title>
 <link rel="stylesheet" href="../css/header.css" type="text/css" />
 <link rel="stylesheet" href="../css/mainbody.css" type="text/css" />
+<link href="../css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 <script src="../js/jquery.js"></script>
 <script src="../js/galleria/galleria-1.2.9.min.js"></script>
 <script src="../js/headerhover.js"></script>
+<script src="../js/jquery.uploadify.min.js" type="text/javascript"></script>
+<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/uploadify.css">
 <style>
     #galleria{
-      margin:0 auto;width:63%;height:540px;border:1px solid #FFE4B5; 
-      background: #FFE4B5 
+      margin:0 auto;width:100%;height:560px;border:1px solid #000; 
+      background: #000 
      }
+	 #addpic{
+	   margin-top:10px;
+	 }
+
 </style>
+<script>
+$(function() {
+ $( "#bulkdel-form" ).dialog({
+autoOpen: false,
+height: 550,
+width: 600,
+modal: true,
+buttons: {
+"删除所选": function() {
+},
+"取消": function() {
+$( this ).dialog( "close" );
+}
+},
+close: function() {
+}
+});
+}
+);
+</script>
 </head>
 
 <body>
@@ -40,8 +68,45 @@ $query = $mysqli->query($sql);
 ?>
 
 <div id="container">
+<div id="albumcontrolpan">
+<div id="addpic">
+<input id="file_upload" name="file_upload" value="hehe"  type="file" multiple="true">
+</div>
+        <script type="text/javascript">
+                <?php $timestamp = time();?>
+                $(function() {
+                        $('#file_upload').uploadify({
+                                'formData'     : {
+                                        'timestamp' : '<?php echo $timestamp;?>',
+                                        'token'     : '<?php echo md5('unique_salt' . $timestamp);?>',
+										'user'   : '<?= $tuser ?>',
+										'album'  :  'default'								
+                                },
+                                'swf'      : '../img/uploadify.swf',
+                                'uploader' : 'uploadify.php',
+								 'onUploadSuccess' :  function(file, data, response) {
+                                          alert('照片上传成功！');
+										  location.reload();
+                                     } 
+                        });
+                });
+        </script>
+<button id="bulkdel">批量删除</button>
+<script>
+$( "#bulkdel" ).click(function() {
+   $( "#bulkdel-form" ).dialog( "open" );
+});
+</script>
+
+</div>
 <div align="center" id="albumdiv">
-        <div id="galleria">
+
+
+<div id="bulkdel-form" title="选择要删除的照片">
+</div>
+
+
+<div id="galleria">
 <?php
 while($row = $query->fetch_array())
 {
@@ -56,7 +121,9 @@ echo "<img src='$picpath' />";
             Galleria.loadTheme('../js/galleria/themes/classic/galleria.classic.min.js');
             Galleria.run('#galleria');
         </script>
+		
 </div>
+
 </div>
 <div id="footer">&copy; <a href="">guapaiqu.com</a> | 喷气机出品 2013</div>
 
